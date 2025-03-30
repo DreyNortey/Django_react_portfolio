@@ -1,10 +1,92 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import { spawn } from 'child_process';
+
+// Start Django server as a child process
+// Add --settings parameter to ensure correct settings are loaded
+const djangoServer = spawn('python', ['manage.py', 'runserver', '0.0.0.0:8000', '--noreload'], {
+  stdio: ['ignore', 'pipe', 'pipe'],
+  detached: false,
+  env: { ...process.env, DJANGO_SETTINGS_MODULE: 'portfolio.settings' }
+});
+
+// Log Django server output
+djangoServer.stdout.on('data', (data) => {
+  console.log(`Django: ${data}`);
+});
+djangoServer.stderr.on('data', (data) => {
+  console.error(`Django error: ${data}`);
+});
+
+// Handle Django server exit
+djangoServer.on('close', (code) => {
+  console.log(`Django server exited with code ${code}`);
+});
+
+// Handle process exit - clean up Django server
+process.on('exit', () => {
+  console.log('Killing Django server...');
+  if (djangoServer && !djangoServer.killed) {
+    djangoServer.kill();
+  }
+});
+
+// Handle SIGINT and SIGTERM
+process.on('SIGINT', () => process.exit());
+process.on('SIGTERM', () => process.exit());
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Admin proxy with proper redirect handling
+const djangoAdminProxy = createProxyMiddleware({
+  target: 'http://localhost:8000',
+  changeOrigin: true,
+  pathRewrite: (path) => {
+    // Replace '/django-admin' with '/admin'
+    const newPath = path.replace(/^\/django-admin/, '/admin');
+    console.log(`Admin proxy: ${path} -> ${newPath}`);
+    return newPath;
+  },
+  // Handle redirects to keep them within our proxy path
+  onProxyRes: (proxyRes, req, res) => {
+    // If we get a redirect response from Django
+    if (proxyRes.headers.location) {
+      const location = proxyRes.headers.location;
+      // If Django redirects to an admin URL, rewrite it to our django-admin prefix
+      if (location.includes('/admin')) {
+        proxyRes.headers.location = location.replace(/\/admin/, '/django-admin');
+        console.log(`Rewriting redirect: ${location} -> ${proxyRes.headers.location}`);
+      }
+    }
+  },
+});
+
+// Apply the admin proxy middleware
+app.use('/django-admin', djangoAdminProxy);
+
+// Proxy static and media routes to Django server
+app.use('/static', createProxyMiddleware({
+  target: 'http://localhost:8000',
+  changeOrigin: true,
+}));
+
+app.use('/media', createProxyMiddleware({
+  target: 'http://localhost:8000',
+  changeOrigin: true,
+}));
+
+// Proxy Django routes to Django server
+app.use('/django', createProxyMiddleware({
+  target: 'http://localhost:8000',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/django': '',
+  },
+}));
 
 app.use((req, res, next) => {
   const start = Date.now();

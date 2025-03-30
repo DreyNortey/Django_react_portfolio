@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, Menu, X } from "lucide-react";
+import { Download, Menu, X, Database } from "lucide-react";
 import useActiveSection from "@/hooks/useActiveSection";
+import { Link } from "wouter";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -77,8 +78,17 @@ const Header = () => {
             </ul>
           </nav>
 
-          {/* Resume Download Button */}
-          <div className="hidden md:block">
+          {/* Django App and Resume Buttons */}
+          <div className="hidden md:flex items-center space-x-2">
+            <Link href="/django-app">
+              <Button
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                <Database size={16} />
+                Django Version
+              </Button>
+            </Link>
             <Button
               className="flex items-center gap-2"
               onClick={() => window.open("#", "_blank")}
@@ -119,8 +129,18 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
+              <Link href="/django-app" className="block w-full">
+                <Button
+                  variant="outline"
+                  className="w-full mt-4 justify-center flex items-center gap-2"
+                  onClick={closeMobileMenu}
+                >
+                  <Database size={16} />
+                  Django Version
+                </Button>
+              </Link>
               <Button
-                className="w-full mt-4 justify-center flex items-center gap-2"
+                className="w-full mt-2 justify-center flex items-center gap-2"
                 onClick={() => window.open("#", "_blank")}
               >
                 <Download size={16} />
