@@ -103,8 +103,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium mb-1">Email</h4>
-                    <a href="mailto:john.doe@example.com" className="text-gray-400 hover:text-white transition-colors duration-300">
-                      john.doe@example.com
+                    <a href="mailto:andrews.nortey@example.com" className="text-gray-400 hover:text-white transition-colors duration-300">
+                      andrews.nortey@example.com
                     </a>
                   </div>
                 </div>
@@ -194,7 +194,7 @@ const Contact = () => {
                           <FormLabel>Your Email</FormLabel>
                           <FormControl>
                             <Input 
-                              placeholder="john@example.com" 
+                              placeholder="your.email@example.com" 
                               type="email" 
                               {...field} 
                               className="bg-zinc-900 border-gray-700 focus:border-primary"

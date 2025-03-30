@@ -127,7 +127,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 pt-8 mt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} John Doe. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Andrews Nortey. All rights reserved.</p>
           <p className="mt-2">
             <a href="#" className="text-gray-500 hover:text-white transition-colors duration-300">Privacy Policy</a>
             <span className="mx-2">•</span>

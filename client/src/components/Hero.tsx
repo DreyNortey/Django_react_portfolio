@@ -75,7 +75,7 @@ const Hero = () => {
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
               <span className="text-gray-100">Hi, I'm </span>
-              <span className="text-primary">John Doe</span>
+              <span className="text-primary">Andrews Nortey</span>
             </h1>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-gray-300 h-12">
               <TypeWriter phrases={[
@@ -149,7 +149,7 @@ const Hero = () => {
               <div className="w-80 h-80 overflow-hidden rounded-full border-4 border-gray-800 relative z-10">
                 <img 
                   src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80" 
-                  alt="John Doe portrait" 
+                  alt="Andrews Nortey portrait" 
                   className="w-full h-full object-cover"
                 />
               </div>

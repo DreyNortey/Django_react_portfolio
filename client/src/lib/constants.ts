@@ -27,16 +27,16 @@ import {
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: 'Serverless API Deployment',
-    description: 'A REST API built with AWS Lambda, API Gateway, and DynamoDB. Implemented with Infrastructure as Code using AWS CDK.',
+    title: 'AWS Serverless Data Processing Pipeline',
+    description: 'Built a scalable data processing system using AWS Lambda, S3, and DynamoDB for analyzing large datasets with minimal operational overhead.',
     image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    categories: ['aws', 'devops'],
+    categories: ['aws', 'automation'],
     tags: [
       { name: 'AWS Lambda', color: 'blue' },
-      { name: 'API Gateway', color: 'blue' },
+      { name: 'S3', color: 'blue' },
       { name: 'DynamoDB', color: 'blue' },
-      { name: 'AWS CDK', color: 'blue' },
-      { name: 'TypeScript', color: 'blue' }
+      { name: 'Python', color: 'blue' },
+      { name: 'Serverless', color: 'blue' }
     ],
     githubUrl: '#',
     demoUrl: '#',
@@ -44,75 +44,75 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
-    title: 'Azure Virtual Network Architecture',
-    description: 'Designed and implemented a secure virtual network architecture in Azure with subnets, NSGs, and Azure Firewall.',
+    title: 'Cloud-Native Incident Response System',
+    description: 'Designed and implemented an automated incident response system for cloud infrastructure using Azure Functions and Logic Apps.',
     image: 'https://images.unsplash.com/photo-1542903660-eedba2cda473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
     categories: ['azure', 'devops'],
     tags: [
-      { name: 'Azure Virtual Network', color: 'purple' },
-      { name: 'Azure Firewall', color: 'purple' },
-      { name: 'Terraform', color: 'purple' },
-      { name: 'Security', color: 'purple' }
+      { name: 'Azure Functions', color: 'purple' },
+      { name: 'Logic Apps', color: 'purple' },
+      { name: 'Security', color: 'purple' },
+      { name: 'PowerShell', color: 'purple' }
     ],
     githubUrl: '#',
     demoUrl: '#'
   },
   {
     id: 3,
-    title: 'Automated CI/CD Pipeline',
-    description: 'Built a comprehensive CI/CD pipeline using GitHub Actions for testing, building, and deploying a microservices application.',
+    title: 'Infrastructure as Code Pipeline',
+    description: 'Created a fully automated infrastructure deployment pipeline using Terraform, GitHub Actions, and AWS CloudFormation.',
     image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    categories: ['automation', 'devops'],
+    categories: ['aws', 'devops'],
     tags: [
+      { name: 'Terraform', color: 'green' },
       { name: 'GitHub Actions', color: 'green' },
-      { name: 'Docker', color: 'green' },
-      { name: 'Kubernetes', color: 'green' },
-      { name: 'Python', color: 'green' }
+      { name: 'CloudFormation', color: 'green' },
+      { name: 'IaC', color: 'green' }
     ],
     githubUrl: '#',
     demoUrl: '#'
   },
   {
     id: 4,
-    title: 'AWS Cost Optimization Tool',
-    description: 'Developed a tool that analyzes AWS resources and provides recommendations for cost optimization using Lambda and CloudWatch.',
+    title: 'Multi-Cloud Cost Management Dashboard',
+    description: 'Developed a centralized dashboard for monitoring and optimizing costs across AWS and Azure cloud environments.',
     image: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
-    categories: ['aws', 'automation'],
+    categories: ['aws', 'azure'],
     tags: [
-      { name: 'AWS Lambda', color: 'blue' },
-      { name: 'CloudWatch', color: 'blue' },
-      { name: 'Cost Explorer API', color: 'blue' },
-      { name: 'Python', color: 'blue' }
+      { name: 'Cost Management', color: 'blue' },
+      { name: 'Power BI', color: 'blue' },
+      { name: 'Multi-Cloud', color: 'purple' },
+      { name: 'React', color: 'blue' }
     ],
     githubUrl: '#',
     demoUrl: '#'
   },
   {
     id: 5,
-    title: 'Azure Web App with Scale Sets',
-    description: 'Deployed a highly available web application using Azure App Service with auto-scaling and load balancing.',
+    title: 'Containerized Microservices Architecture',
+    description: 'Migrated a monolithic application to a microservices architecture using Docker, Kubernetes, and Azure AKS.',
     image: 'https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
     categories: ['azure', 'devops'],
     tags: [
-      { name: 'Azure App Service', color: 'purple' },
-      { name: 'Scale Sets', color: 'purple' },
-      { name: 'Application Insights', color: 'purple' },
-      { name: '.NET Core', color: 'purple' }
+      { name: 'Docker', color: 'purple' },
+      { name: 'Kubernetes', color: 'purple' },
+      { name: 'AKS', color: 'purple' },
+      { name: 'Microservices', color: 'purple' }
     ],
     githubUrl: '#',
     demoUrl: '#'
   },
   {
     id: 6,
-    title: 'Infrastructure Monitoring Dashboard',
-    description: 'Created a comprehensive monitoring solution using CloudWatch, Grafana, and Prometheus for real-time infrastructure insights.',
+    title: 'Automated Security Compliance Toolkit',
+    description: 'Built a suite of tools for automated security compliance scanning and reporting across cloud environments.',
     image: 'https://images.unsplash.com/photo-1606765962248-7ff407b51667?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80',
-    categories: ['aws', 'automation'],
+    categories: ['automation', 'devops'],
     tags: [
-      { name: 'CloudWatch', color: 'blue' },
-      { name: 'Grafana', color: 'blue' },
-      { name: 'Prometheus', color: 'blue' },
-      { name: 'Terraform', color: 'blue' }
+      { name: 'Security', color: 'blue' },
+      { name: 'Compliance', color: 'green' },
+      { name: 'Python', color: 'green' },
+      { name: 'AWS Security Hub', color: 'blue' }
     ],
     githubUrl: '#',
     demoUrl: '#'
